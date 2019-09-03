@@ -11,7 +11,7 @@ class ProfileController extends Controller
 {
 public function index(Request $request)
 {
-    $profile = Profile::where('user_id',$request->user()->id)->first;
+    $profile = Profile::where('user_id',$request->user()->id)->first();
     if(empty($profile)) {
         abort(404);
         

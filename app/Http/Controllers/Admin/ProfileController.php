@@ -38,7 +38,7 @@ class ProfileController extends Controller
     
     public function edit(Request $request)
     {
-        $profile = Profile::where('user_id',$request->user()->id)->first;
+        $profile = Profile::where('user_id',$request->user()->id)->first();
         if (empty($profile)) {
             abort(404);
         }
@@ -49,7 +49,7 @@ class ProfileController extends Controller
     public function update(Request $request)
     {
         $this->validate($request, Profile::$rules);
-        $profile = Profile::where('user_id',$request->user()->id)->first;
+        $profile = Profile::where('user_id',$request->user()->id)->first();
         $profile_form = $request->all();
         unset($profile_form['_token']);
         
